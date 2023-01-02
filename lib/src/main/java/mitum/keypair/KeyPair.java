@@ -23,7 +23,7 @@ class KeyPair {
         byte[] sh;
         try {
             sh = Hasher.sha3(seed);
-        } catch (UnhashableException e) {
+        } catch (Exception e) {
             throw new UnhashableException("cannot hash the msg", e);
         }
 
