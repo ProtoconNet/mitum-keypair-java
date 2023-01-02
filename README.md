@@ -9,6 +9,21 @@ This is a package to generate key pairs used in __mitum__ and __mitum2__.
 The `latest` branch is being updated in the following environments:
 
 ```sh
+$ gradle --version
+
+------------------------------------------------------------
+Gradle 7.6
+------------------------------------------------------------
+
+Build time:   2022-11-25 13:35:10 UTC
+Revision:     daece9dbc5b79370cc8e4fd6fe4b2cd400e150a8
+
+Kotlin:       1.7.10
+Groovy:       3.0.13
+Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
+JVM:          19.0.1 (Oracle Corporation 19.0.1+10-21)
+OS:           Mac OS X 12.0.1 aarch64
+
 $ java --version
 java 19.0.1 2022-10-18
 Java(TM) SE Runtime Environment (build 19.0.1+10-21)
