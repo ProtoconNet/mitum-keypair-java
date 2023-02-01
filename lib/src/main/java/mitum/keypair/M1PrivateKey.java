@@ -6,7 +6,6 @@ import org.bitcoinj.core.ECKey;
 import org.bitcoinj.core.Sha256Hash;
 import org.bitcoinj.params.MainNetParams;
 
-import mitum.keypair.exception.InvalidLengthArgumentException;
 import mitum.keypair.util.HexString;
 
 public class M1PrivateKey extends PrivateKey {
@@ -16,7 +15,7 @@ public class M1PrivateKey extends PrivateKey {
     private M1PrivateKey(String s) {
         super(s);
         if (s.length() != MAX_LEN) {
-            throw new InvalidLengthArgumentException("invalid length of m1 - private key");
+            throw new IndexOutOfBoundsException("invalid length of m1 - private key");
         }
 
         this.kp = DumpedPrivateKey.fromBase58(MainNetParams.get(), this.getKey()).getKey();

@@ -1,7 +1,5 @@
 package mitum.keypair;
 
-import mitum.keypair.exception.InvalidLengthArgumentException;
-
 public class PublicKey extends Key {
     static final int MAX_LEN = 48;
 
@@ -9,7 +7,7 @@ public class PublicKey extends Key {
         super(s);
 
         if (s.length() < MIN_LEN || s.length() > MAX_LEN) {
-            throw new InvalidLengthArgumentException("invalid length of public key");
+            throw new IndexOutOfBoundsException("invalid length of public key");
         }
     }
 

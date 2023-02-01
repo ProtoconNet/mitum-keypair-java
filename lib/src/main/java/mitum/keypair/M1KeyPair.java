@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import org.bitcoinj.core.Base58;
 import org.bitcoinj.core.ECKey;
 
-import mitum.keypair.exception.InvalidLengthArgumentException;
 import mitum.keypair.util.PrivateKeyEnc;
 
 public class M1KeyPair extends KeyPair {
@@ -34,7 +33,7 @@ public class M1KeyPair extends KeyPair {
 
     public static M1KeyPair fromSeed(String seed) {
         if (seed.length() < MIN_SEED_LEN) {
-            throw new InvalidLengthArgumentException("invalid length of seed");
+            throw new IndexOutOfBoundsException("invalid length of seed");
         }
 
         byte[] pk = PrivateKeyEnc.encode(hexKeyFromSeed(seed.getBytes(StandardCharsets.UTF_8)));

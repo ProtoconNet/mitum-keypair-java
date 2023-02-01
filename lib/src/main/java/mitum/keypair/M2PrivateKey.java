@@ -6,7 +6,6 @@ import org.bitcoinj.core.ECKey;
 import org.bitcoinj.core.Sha256Hash;
 import org.bitcoinj.params.MainNetParams;
 
-import mitum.keypair.exception.InvalidLengthArgumentException;
 import mitum.keypair.util.HexString;
 import mitum.keypair.util.PrivateKeyEnc;
 
@@ -18,7 +17,7 @@ public class M2PrivateKey extends PrivateKey {
         super(s);
 
         if (s.length() < MIN_LEN || s.length() > MAX_LEN) {
-            throw new InvalidLengthArgumentException("invalid length of m2 - private key");
+            throw new IndexOutOfBoundsException("invalid length of m2 - private key");
         }
 
         byte[] pk = PrivateKeyEnc.encode(HexString.fromBytes(Base58.decode(this.getKey())).toString());

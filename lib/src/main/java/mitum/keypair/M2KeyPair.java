@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import org.bitcoinj.core.Base58;
 import org.bitcoinj.core.ECKey;
 
-import mitum.keypair.exception.InvalidLengthArgumentException;
 import mitum.keypair.util.HexString;
 
 public class M2KeyPair extends KeyPair {
@@ -34,7 +33,7 @@ public class M2KeyPair extends KeyPair {
 
     public static M2KeyPair fromSeed(String seed) {
         if (seed.length() < MIN_SEED_LEN) {
-            throw new InvalidLengthArgumentException("invalid length of seed");
+            throw new IndexOutOfBoundsException("invalid length of seed");
         }
 
         byte[] pk = HexString.from(hexKeyFromSeed(seed.getBytes(StandardCharsets.UTF_8))).toBytes();
