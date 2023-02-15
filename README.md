@@ -61,6 +61,10 @@ BUILD SUCCESSFUL in 336ms
 
 ## Run
 
+This is just an example.
+
+See [For protocon and mitum wallets](#for-protocon-and-mitum-wallets) for the correct way to create a key pair with mnemonic in protocon or mitum wallets.
+
 ### Generate mitum1 KeyPair
 
 ```java
@@ -156,3 +160,13 @@ public class App {
 ```
 
 Encodes all signatures into base58 when transferring to the mitum network.
+
+### Appendix
+
+#### For protocon and mitum wallets
+
+When creating a key pair using the mnemonic of the protocon and mitum wallet, observe the following procedure.
+
+1. Create a byte[]-type seed from the mnemonic.
+2. After __base58__ encoding, convert the seed generated in _1._ into a String-type string.
+3. Create a mitum key pair by inserting the string of _2._ into `M1KeyPair.fromSeed(String)` or `M2KeyPair.fromSeed(String)`.
