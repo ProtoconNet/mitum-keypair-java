@@ -28,7 +28,8 @@ public class M1KeyPair extends KeyPair {
     }
 
     public static M1KeyPair fromSeed(byte[] seed) {
-        return fromSeed(new String(seed, StandardCharsets.UTF_8));
+        byte[] pk = PrivateKeyEnc.encode(hexKeyFromSeed(seed));
+        return new M1KeyPair(M1PrivateKey.from(Base58.encode(pk) + "mpr"));
     }
 
     public static M1KeyPair fromSeed(String seed) {
@@ -36,7 +37,6 @@ public class M1KeyPair extends KeyPair {
             throw new IndexOutOfBoundsException("invalid length of seed");
         }
 
-        byte[] pk = PrivateKeyEnc.encode(hexKeyFromSeed(seed.getBytes(StandardCharsets.UTF_8)));
-        return new M1KeyPair(M1PrivateKey.from(Base58.encode(pk) + "mpr"));
+        return fromSeed(seed.getBytes(StandardCharsets.UTF_8));
     }
 }
